@@ -1,7 +1,10 @@
 package com.zipcodewilmington.assessment1.part2;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Created by leon on 2/16/18.
@@ -52,7 +55,7 @@ public class ArrayUtils {
     public static Object getMostCommon(Object[] objectArray) {
         Integer count = 1, tempCount;
         Object mode = objectArray[0];
-        Object temp = 0;
+        Object temp;
         for (int i = 0; i < objectArray.length - 1; i++){
             temp = objectArray[i];
             tempCount = 0;
@@ -87,8 +90,8 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        int firstLength = objectArray.length;
-        int secondLength = objectArrayToAdd.length;
+        Integer firstLength = objectArray.length;
+        Integer secondLength = objectArrayToAdd.length;
 
         Object[] mergedArray = (Object[]) Array.newInstance(objectArray.getClass().getComponentType(), firstLength, secondLength);
         System.arraycopy(objectArray, 0, mergedArray,0,  firstLength);
