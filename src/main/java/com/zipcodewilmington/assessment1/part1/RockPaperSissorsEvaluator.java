@@ -1,8 +1,5 @@
 package com.zipcodewilmington.assessment1.part1;
 
-
-import sun.plugin2.ipc.windows.WindowsNamedPipe;
-
 /**
  * Created by leon on 2/16/18.
  */
