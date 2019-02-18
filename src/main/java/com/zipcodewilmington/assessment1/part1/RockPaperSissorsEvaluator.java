@@ -1,5 +1,8 @@
 package com.zipcodewilmington.assessment1.part1;
 
+
+import sun.plugin2.ipc.windows.WindowsNamedPipe;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -13,7 +16,15 @@ public class RockPaperSissorsEvaluator {
      * @return the respective winning move
      */
     public String getWinningMove(String handSign) {
-        return null;
+        String winningMove = "";
+        if (handSign == ROCK){
+            winningMove = PAPER;
+        } else if (handSign == PAPER){
+            winningMove = SCISSOR;
+        } else if (handSign == SCISSOR){
+            winningMove = ROCK;
+        }
+        return winningMove;
     }
 
     /**
@@ -21,7 +32,15 @@ public class RockPaperSissorsEvaluator {
      * @return the respective losing move
      */
     public String getLosingMove(String handSign) {
-        return null;
+        String losingMove = "";
+        if (handSign == ROCK){
+            losingMove = SCISSOR;
+        } else if (handSign == PAPER){
+            losingMove = ROCK;
+        } else if (handSign == SCISSOR){
+            losingMove = PAPER;
+        }
+        return losingMove;
     }
 
     /**
@@ -30,6 +49,26 @@ public class RockPaperSissorsEvaluator {
      * @return a string representative of the winning hand sign between the two players
      */
     public String getWinner(String handSignOfPlayer1, String handSignOfPlayer2) {
-        return null;
+        String winner = "";
+        if (handSignOfPlayer1 == ROCK){
+            if (handSignOfPlayer2 == PAPER){
+                winner = PAPER;
+            } else if (handSignOfPlayer2 == SCISSOR){
+                winner = ROCK;
+            }
+        } else if (handSignOfPlayer1 == PAPER){
+            if (handSignOfPlayer2 == ROCK){
+                winner = PAPER;
+            } else if (handSignOfPlayer2 == SCISSOR){
+                winner = SCISSOR;
+            }
+        } else if (handSignOfPlayer1 == SCISSOR){
+            if (handSignOfPlayer2 == ROCK){
+                winner = ROCK;
+            } else if (handSignOfPlayer2 == PAPER){
+                winner = SCISSOR;
+            }
+        }
+        return winner;
     }
 }
