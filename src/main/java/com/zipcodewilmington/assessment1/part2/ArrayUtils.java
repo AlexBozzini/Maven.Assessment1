@@ -79,8 +79,13 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-
-        return null;
+        Object leastCommonElement = objectArray[0];
+        for (int i = 1; i < objectArray.length; i++){
+           if (ArrayUtils.getNumberOfOccurrences(objectArray, objectArray[i]) < ArrayUtils.getNumberOfOccurrences(objectArray, leastCommonElement)){
+               leastCommonElement = objectArray[i];
+           }
+        }
+        return leastCommonElement;
     }
 
     /**
@@ -89,13 +94,17 @@ public class ArrayUtils {
      * @return an array containing all elements in `objectArray` and `objectArrayToAdd`
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
-    public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
+    public static Integer[] mergeArrays(Integer[] objectArray, Integer[] objectArrayToAdd) {
         Integer firstLength = objectArray.length;
         Integer secondLength = objectArrayToAdd.length;
 
-        Object[] mergedArray = (Object[]) Array.newInstance(objectArray.getClass().getComponentType(), firstLength, secondLength);
-        System.arraycopy(objectArray, 0, mergedArray,0,  firstLength);
-        System.arraycopy(objectArrayToAdd, 0, mergedArray, firstLength, secondLength);
+        Integer[] mergedArray = new Integer[firstLength + secondLength];
+        for (int i = 0; i < firstLength; i++){
+            mergedArray[i] = objectArray[i];
+        }
+        for (int i = 0; i < secondLength; i++){
+            mergedArray[i + firstLength] = objectArrayToAdd[i];
+        }
         return mergedArray;
     }
 }
