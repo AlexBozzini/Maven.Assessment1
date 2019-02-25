@@ -35,7 +35,16 @@ public class IntegerUtils {
      * @return integer with identical digits in the reverse order
      */
     public static Integer reverseDigits(Integer val) {
-        Integer reversedInt = val;
+        String tempIntString = val.toString();
+        StringBuilder builder = new StringBuilder(tempIntString);
+        String reversedIntString = builder.reverse().toString();
+        Integer reversedVal = Integer.parseInt(reversedIntString);
+        return reversedVal;
+
+
+
+
+        /*Integer reversedInt = val;
         while (val != 0){
             reversedInt = reversedInt * 10 + val % 10;
             val = val / 10;
@@ -43,6 +52,6 @@ public class IntegerUtils {
         String temp = val.toString();
         String temp2 = temp.substring(val);
         Integer output = Integer.parseInt(temp2);
-        return output;
+        return output;*/
     }
 }
